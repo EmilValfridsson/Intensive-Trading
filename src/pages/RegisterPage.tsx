@@ -30,7 +30,7 @@ function RegisterPage() {
   async function onSubmit(data: FormData) {
     console.log("Submitted", data);
     try {
-      await user.register(data);
+      // await user.register(data);
 
       navigate("/");
     } catch (error: any) {
