@@ -15,7 +15,7 @@ function NavBar() {
           <Link to="/" className="btn btn-ghost text-xl ">
             Register
           </Link>
-          <Link to="/" className="btn btn-ghost text-xl ">
+          <Link to="profile" className="btn btn-ghost text-xl ">
             Profile
           </Link>
         </div>
