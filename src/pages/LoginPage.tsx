@@ -1,7 +1,8 @@
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
+import auth from "../services/authService";
 
 const schema = z.object({
   username: z.string().min(1, { message: "Username is required." }),
@@ -12,28 +13,28 @@ type FormData = z.infer<typeof schema>;
 
 function LoginPage() {
   const {
-    // setError,
+    setError,
     register,
     handleSubmit,
     formState: { errors, isValid },
   } = useForm<FormData>({ resolver: zodResolver(schema), mode: "onChange" });
   const navigate = useNavigate();
   const { state: fromUrl } = useLocation();
-  //   const user = auth.getCurrentUser();
+  const user = auth.getCurrentUser();
 
   async function onSubmit(data: FormData) {
     console.log("Submitted", data);
     navigate(fromUrl || "/");
-    // try {
-    // //   await auth.login(data);
-    // } catch (error: any) {
-    //   if (error.response.status === 400) {
-    //     setError("username", { message: error.response.data });
-    //   }
-    // }
+    try {
+      await auth.login(data);
+    } catch (error: any) {
+      if (error.response.status === 400) {
+        setError("username", { message: error.response.data });
+      }
+    }
   }
 
-  //   if (user) return <Navigate to={"/foods"} />;
+  if (user) return <Navigate to={"/"} />;
 
   return (
     <div className="h-screen grid place-items-center place-content-center">
