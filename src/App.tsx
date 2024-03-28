@@ -1,8 +1,12 @@
+import { Outlet } from "react-router-dom";
+import NavBar from "./components/NavBar";
+
 function App() {
   return (
-    <div>
-      <button className="btn btn-secondary">Intensive-Trading</button>
-    </div>
+    <>
+      <NavBar />
+      <Outlet />
+    </>
   );
 }
 
