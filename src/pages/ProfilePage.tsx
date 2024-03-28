@@ -12,15 +12,14 @@ function ProfilePage() {
             <h1 className="text-2xl ml-2">ProfileName</h1>
           </div>
         </figure>
-        <div className="card-body">
-          <h2 className="card-title">Favorite Stocks</h2>
-          <p>Investor B</p>
-          <p>Investor B</p>
-          <p>Investor B</p>
-          <p>Investor B</p>
-          <p>Investor B</p>
-          <div className="card-actions justify-end">
-            <button className="btn btn-primary">Edit Profile</button>
+        <div className="card-body grid grid-cols-2">
+          <div>
+            <h2 className="card-title">Favorite Stocks</h2>
+            <p>Investor B</p>
+            <p>Investor B</p>
+            <p>Investor B</p>
+            <p>Investor B</p>
+            <p>Investor B</p>
           </div>
         </div>
       </div>
