@@ -8,11 +8,11 @@ function NavBar() {
           <Link to="/" className="btn btn-ghost text-xl ">
             Home
           </Link>
-          <Link to="/" className="btn btn-ghost text-xl ">
+          <Link to="/login" className="btn btn-ghost text-xl ">
             Login
           </Link>
 
-          <Link to="/" className="btn btn-ghost text-xl ">
+          <Link to="/registerpage" className="btn btn-ghost text-xl ">
             Register
           </Link>
           <Link to="/" className="btn btn-ghost text-xl ">
