@@ -9,8 +9,7 @@ export interface UserRegister {
   password: string;
 }
 
-const API_BASEURL = "http://localhost:5570/api/users";
-//const CREDENTIALS = "?username=armen&accessCode=gdhHaS";
+const API_BASEURL = "http://localhost:9111/api/users";
 
 async function register(user: UserRegister) {
   const { headers, data } = await axios.post(API_BASEURL, user);
