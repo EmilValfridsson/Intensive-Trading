@@ -3,15 +3,17 @@ import App from "./App";
 import LoginPage from "./pages/LoginPage";
 import Logout from "./components/Logout";
 import RegisterPage from "./pages/RegisterPage";
+import MainPage from "./pages/MainPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     children: [
-      { path: "/registerpage", element: <RegisterPage /> },
-      { path: "/login", element: <LoginPage /> },
-      { path: "/logout", element: <Logout /> },
+      { path: "", element: <MainPage /> },
+      { path: "registerpage", element: <RegisterPage /> },
+      { path: "login", element: <LoginPage /> },
+      { path: "logout", element: <Logout /> },
     ],
   },
 ]);

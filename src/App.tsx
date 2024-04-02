@@ -1,34 +1,12 @@
-import FavoriteStocks from "./components/FavoriteStocks";
-import TradedStocks from "./components/MostTradedStocks";
-import StatisticsNews from "./components/StatisticsNews";
+import { Outlet } from "react-router-dom";
+import NavBar from "./components/NavBar";
 
 function App() {
   return (
-    <div className="flex flex-col min-h-screen">
-      <div className="flex-grow flex flex-row">
-        <TradedStocks />
-        <FavoriteStocks />
-      </div>
-      <div
-        className="flex-grow flex justify-center items-center"
-        style={{ position: "absolute", bottom: "20px", width: "100%" }}
-      >
-        <div style={{ width: "80%", maxWidth: "800px" }}>
-          <StatisticsNews />
-        </div>
-      </div>
-    </div>
-
-//import { Outlet } from "react-router-dom";
-//import NavBar from "./components/NavBar";
-
-//function App() {
-  //return (
-  //  <>
-     // <NavBar />
-     // <Outlet />
-  //  </>
-
+    <>
+      <NavBar />
+      <Outlet />
+    </>
   );
 }
 

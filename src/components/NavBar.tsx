@@ -21,35 +21,29 @@ function NavBar() {
     <div className="p-4">
       <div className="navbar bg-base-100 shadow rounded-lg">
         <div className="navbar-start">
-          <Link to="/" className="btn btn-ghost text-xl ">
+          <Link to="/mainpage" className="btn btn-ghost text-xl ">
             Home
           </Link>
           {user && (
             <>
-              <li className="nav-item">
-                <Link className="btn btn-ghost text-xl " to="/profile">
-                  {user.name}
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="btn btn-ghost text-xl " to="/logout">
-                  Logout
-                </Link>
-              </li>
+              <Link className="btn btn-ghost text-xl " to="/profile">
+                {user.name}
+              </Link>
+
+              <Link className="btn btn-ghost text-xl " to="/logout">
+                Logout
+              </Link>
             </>
           )}
           {!user && (
             <>
-              <li className="nav-item">
-                <Link className="btn btn-ghost text-xl " to="/login">
-                  Login
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="btn btn-ghost text-xl " to="/registerpage">
-                  Register
-                </Link>
-              </li>
+              <Link className="btn btn-ghost text-xl " to="/login">
+                Login
+              </Link>
+
+              <Link className="btn btn-ghost text-xl " to="/registerpage">
+                Register
+              </Link>
             </>
           )}
         </div>
