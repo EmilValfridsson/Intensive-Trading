@@ -25,6 +25,15 @@ function ProfilePage() {
             <p>Investor B</p>
             <p>Investor B</p>
           </div>
+          <div>
+            <h2 className="card-title">lorem</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque
+              ipsa quas iusto, dolorum dolore veritatis? Nesciunt quas magnam
+              recusandae qui illo suscipit aspernatur. Iste iure sed cupiditate
+              culpa molestias ducimus.
+            </p>
+          </div>
         </div>
       </div>
     </div>
