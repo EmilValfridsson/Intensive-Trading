@@ -11,7 +11,7 @@ export default function MainPage() {
       </div>
       <div
         className="flex-grow flex justify-center items-center"
-        style={{ position: "absolute", bottom: "20px", width: "100%" }}
+        //style={{ position: "absolute", bottom: "20px", width: "100%" }}
       >
         <div style={{ width: "80%", maxWidth: "800px" }}>
           <StatisticsNews />
