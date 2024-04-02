@@ -21,7 +21,7 @@ function NavBar() {
     <div className="p-4">
       <div className="navbar bg-base-100 shadow rounded-lg">
         <div className="navbar-start">
-          <Link to="/mainpage" className="btn btn-ghost text-xl ">
+          <Link to="" className="btn btn-ghost text-xl ">
             Home
           </Link>
           {user && (
