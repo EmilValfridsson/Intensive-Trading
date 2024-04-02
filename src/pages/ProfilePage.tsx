@@ -1,4 +1,8 @@
+import authService from "../services/authService";
+
 function ProfilePage() {
+  const user = authService.getCurrentUser();
+
   return (
     <div className="flex justify-center">
       <div className="card w-2/3 bg-base-100 shadow-xl">
@@ -9,7 +13,7 @@ function ProfilePage() {
             </div>
           </div>
           <div>
-            <h1 className="text-2xl ml-2">ProfileName</h1>
+            <h1 className="text-2xl ml-2">{user?.name}</h1>
           </div>
         </figure>
         <div className="card-body grid grid-cols-2">
