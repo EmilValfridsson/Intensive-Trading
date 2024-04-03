@@ -9,11 +9,20 @@ export default function FavoriteStocks() {
   return (
     <div
       className="right-menu"
-      style={{ marginLeft: "auto", marginTop: "50px" }}
+      style={{
+        marginLeft: "auto",
+        marginTop: "50px",
+      }}
     >
       <ul
         className="m-8 menu bg-base-200 w-56 rounded-box"
-        style={{ display: "grid", gap: "10px", justifyItems: "start" }}
+        style={{
+          display: "grid",
+          gap: "10px",
+          justifyItems: "start",
+          height: "400px",
+          overflowY: "scroll",
+        }}
       >
         <li className="text-4xl menu-title">Favorit aktier</li>
         {favoriteStocks.map((stock, index) => (
