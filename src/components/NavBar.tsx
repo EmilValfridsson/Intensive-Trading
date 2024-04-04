@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import authService from "../services/authService";
+
+import { useUserContext } from "../UserContext";
 
 export interface User {
   id: string;
@@ -10,13 +11,7 @@ export interface User {
 }
 
 function NavBar() {
-  const [user, setUser] = useState<User | null>(null);
-
-  useEffect(() => {
-    const user = authService.getCurrentUser();
-
-    setUser(user);
-  }, []);
+  const { user } = useUserContext();
   return (
     <div className="p-4">
       <div className="navbar bg-base-100 shadow rounded-lg">

@@ -34,11 +34,13 @@ export default function UserProvider({ children }: PropsWithChildren) {
 
     fetchUser();
   }, []);
-  return (
-    <UserContext.Provider value={{ user, setUser }}>
-      {children}
-    </UserContext.Provider>
-  );
+
+  const value = {
+    user,
+    setUser,
+  };
+
+  return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 }
 
 export function useUserContext() {
