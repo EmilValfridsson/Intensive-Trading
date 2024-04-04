@@ -17,7 +17,9 @@ const defaultUserContext: UserContextType = {
   user: null,
   setUser: () => null,
 };
-const UserContext = createContext<UserContextType>(defaultUserContext);
+
+const UserContext = createContext(defaultUserContext);
+
 export default function UserProvider({ children }: PropsWithChildren) {
   const [user, setUser] = useState<User | null>(null);
 
@@ -35,7 +37,7 @@ export default function UserProvider({ children }: PropsWithChildren) {
     fetchUser();
   }, []);
 
-  const value = {
+  const value: UserContextType = {
     user,
     setUser,
   };
