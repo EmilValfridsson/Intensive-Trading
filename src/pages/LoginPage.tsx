@@ -25,12 +25,9 @@ function LoginPage() {
   const { setUser } = useUserContext();
 
   async function onSubmit(data: FormData) {
-    console.log("Submitted", data);
     try {
       await auth.login(data);
-
       const loggedIn = await auth.getCurrentUser();
-
       setUser(loggedIn);
       navigate(fromUrl || "/");
     } catch (error: any) {
