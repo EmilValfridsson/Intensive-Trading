@@ -21,7 +21,7 @@ function LoginPage() {
   } = useForm<FormData>({ resolver: zodResolver(schema), mode: "onChange" });
   const navigate = useNavigate();
   const { state: fromUrl } = useLocation();
-  const user1 = auth.getCurrentUser();
+  const user = auth.getCurrentUser();
   const { setUser } = useUserContext();
 
   async function onSubmit(data: FormData) {
@@ -40,7 +40,7 @@ function LoginPage() {
     }
   }
 
-  if (user1) return <Navigate to={"/"} />;
+  if (user) return <Navigate to={"/"} />;
 
   return (
     <div className="h-screen grid place-items-center place-content-center">

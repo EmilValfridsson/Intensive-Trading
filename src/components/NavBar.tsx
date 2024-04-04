@@ -1,14 +1,5 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
 import { useUserContext } from "../UserContext";
-
-export interface User {
-  id: string;
-  name: string;
-  username: string;
-  isAdmin: boolean;
-}
 
 function NavBar() {
   const { user } = useUserContext();
