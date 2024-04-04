@@ -6,7 +6,7 @@ import auth from "../services/authService";
 
 const schema = z.object({
   username: z.string().min(1, { message: "Username is required." }),
-  password: z.string().min(1, { message: "Username is required." }),
+  password: z.string().min(1, { message: "Password is required." }),
 });
 
 type FormData = z.infer<typeof schema>;
@@ -24,9 +24,9 @@ function LoginPage() {
 
   async function onSubmit(data: FormData) {
     console.log("Submitted", data);
-    navigate(fromUrl || "/");
     try {
       await auth.login(data);
+      navigate(fromUrl || "/");
     } catch (error: any) {
       if (error.response.status === 400) {
         setError("username", { message: error.response.data });
