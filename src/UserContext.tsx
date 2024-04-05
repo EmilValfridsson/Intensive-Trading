@@ -1,11 +1,4 @@
-import {
-  PropsWithChildren,
-  createContext,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
-import authService from "./services/authService";
+import { PropsWithChildren, createContext, useContext, useState } from "react";
 import { User } from "./types";
 
 interface UserContextType {
@@ -22,20 +15,6 @@ const UserContext = createContext(defaultUserContext);
 
 export default function UserProvider({ children }: PropsWithChildren) {
   const [user, setUser] = useState<User | null>(null);
-
-  useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        const currentUser = await authService.getCurrentUser();
-        setUser(currentUser);
-      } catch (error) {
-        console.error("Error fetching user:", error);
-        setUser(null);
-      }
-    };
-
-    fetchUser();
-  }, []);
 
   const value: UserContextType = {
     user,
