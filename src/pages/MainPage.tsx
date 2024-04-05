@@ -6,15 +6,14 @@ export default function MainPage() {
   return (
     <div className="flex flex-col min-h-screen">
       <div className="flex-grow flex flex-row">
-        <TradedStocks />
-        <FavoriteStocks />
-      </div>
-      <div
-        className="flex-grow flex justify-center items-center"
-        //style={{ position: "absolute", bottom: "20px", width: "100%" }}
-      >
-        <div style={{ width: "80%", maxWidth: "800px" }}>
+        <div className="flex-shrink">
+          <TradedStocks />
+        </div>
+        <div className="flex-grow">
           <StatisticsNews />
+        </div>
+        <div className="flex-shrink">
+          <FavoriteStocks />
         </div>
       </div>
     </div>

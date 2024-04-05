@@ -1,28 +1,16 @@
 export default function StatisticsNews() {
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "flex-end",
-        minHeight: "100vh",
-      }}
-    >
-      <ul
-        className="menu bg-base-200 rounded-box"
-        style={{ width: "100%", maxWidth: "800px" }}
-      >
-        <li className="menu-title" style={{ fontSize: "24px" }}>
-          Statistik & Nyheter
+    <div className="flex justify-center items-end min-h-screen">
+      <ul className="menu bg-base-200 rounded-box w-full max-w-800 ">
+        <li className="menu-title text-2xl">Statistik & Nyheter</li>
+        <li>
+          <a className="text-xl">Item 1</a>
         </li>
         <li>
-          <a style={{ fontSize: "20px" }}>Item 1</a>
+          <a className="text-xl">Item 2</a>
         </li>
         <li>
-          <a style={{ fontSize: "20px" }}>Item 2</a>
-        </li>
-        <li>
-          <a style={{ fontSize: "20px" }}>Item 3</a>
+          <a className="text-xl">Item 3</a>
         </li>
       </ul>
     </div>
