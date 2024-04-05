@@ -3,6 +3,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import auth from "../services/authService";
+import { useUserContext } from "../UserContext";
 
 const schema = z.object({
   username: z.string().min(1, { message: "Username is required." }),
@@ -21,11 +22,13 @@ function LoginPage() {
   const navigate = useNavigate();
   const { state: fromUrl } = useLocation();
   const user = auth.getCurrentUser();
+  const { setUser } = useUserContext();
 
   async function onSubmit(data: FormData) {
-    console.log("Submitted", data);
     try {
       await auth.login(data);
+      const loggedIn = await auth.getCurrentUser();
+      setUser(loggedIn);
       navigate(fromUrl || "/");
     } catch (error: any) {
       if (error.response.status === 400) {
