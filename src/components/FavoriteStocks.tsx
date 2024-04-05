@@ -4,29 +4,22 @@ export default function FavoriteStocks() {
     "SBB NORDEN B",
     "Electrolux A",
     "Alfa Laval",
+    "Alfa Laval",
+    "Alfa Laval",
+    "Alfa Laval",
   ];
 
   return (
-    <div
-      className="right-menu"
-      style={{
-        marginLeft: "auto",
-        marginTop: "50px",
-      }}
-    >
+    <div className="right-menu ml-auto mt-50">
       <ul
-        className="m-8 menu bg-base-200 w-56 rounded-box"
+        className="m-8 menu bg-base-200 w-56 rounded-box h-400 overflow-y-scroll grid grid-cols-1 justify-start"
         style={{
-          display: "grid",
-          gap: "10px",
-          justifyItems: "start",
           height: "400px",
-          overflowY: "scroll",
         }}
       >
         <li className="text-4xl menu-title">Favorit aktier</li>
         {favoriteStocks.map((stock, index) => (
-          <li key={index} className="text-3xl" style={{ textAlign: "left" }}>
+          <li key={index} className="text-3xl text-left">
             <a> {stock} </a>
           </li>
         ))}
