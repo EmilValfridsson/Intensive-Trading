@@ -1,22 +1,8 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import authService from "../services/authService";
-
-export interface User {
-  id: string;
-  name: string;
-  username: string;
-  isAdmin: boolean;
-}
+import { useUserContext } from "../UserContext";
 
 function NavBar() {
-  const [user, setUser] = useState<User | null>(null);
-
-  useEffect(() => {
-    const user = authService.getCurrentUser();
-
-    setUser(user);
-  }, []);
+  const { user } = useUserContext();
   return (
     <div className="p-4">
       <div className="navbar bg-base-100 shadow rounded-lg">
