@@ -1,21 +1,21 @@
 export default function TradedStocks() {
-  const stocks = ["Evolution", "SAAB B", "H&M B", "Company D", "Company E"];
+  const stocks = [
+    "Evolution",
+    "SAAB B",
+    "H&M B",
+    "Company D",
+    "Company E",
+    "Company E",
+    "Company E",
+    "Company E",
+  ];
 
   return (
-    <div
-      className="left-menu"
-      style={{
-        marginRight: "auto",
-        marginTop: "50px",
-      }}
-    >
+    <div className="left-menu mr-auto mt-50">
       <ul
-        className="m-8 menu bg-base-200 w-56 rounded-box"
+        className="m-8 menu bg-base-200 w-56 rounded-box grid grid-cols-1 overflow-scroll"
         style={{
-          display: "grid",
-          gap: "10px",
           height: "400px",
-          overflowY: "scroll",
         }}
       >
         <li className="text-4xl menu-title">Mest omsatta aktier</li>
