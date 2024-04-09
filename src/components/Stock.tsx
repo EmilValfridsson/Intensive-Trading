@@ -38,7 +38,11 @@ function Stock({ searchValue }: StockProps) {
             marker: { color: "green" },
           },
         ]}
+<<<<<<< HEAD
         layout={{ width: 640, height: 480, title: `${searchValue}` }}
+=======
+        layout={{ width: 640, height: 480, title: `${value}` }}
+>>>>>>> 92da2c8fd0175e2c63af39876cbdf6aaf43a2897
       />
     </div>
   );
