@@ -1,8 +1,21 @@
 import { Link } from "react-router-dom";
 import { useUserContext } from "../UserContext";
+import { useState, ChangeEvent } from "react";
 
-function NavBar() {
+interface SearchProps {
+  onSearch: (value: string) => void;
+}
+
+function NavBar({ onSearch }: SearchProps) {
   const { user } = useUserContext();
+  const [searchValue, setSearchValue] = useState("");
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setSearchValue(event.target.value);
+  };
+  const handleSearch = () => {
+    onSearch(searchValue);
+  };
+
   return (
     <div className="p-4">
       <div className="navbar bg-base-100 shadow rounded-lg">
@@ -40,9 +53,12 @@ function NavBar() {
           <div className="form-control">
             <input
               type="text"
-              placeholder="Search"
               className="input input-bordered w-24 md:w-auto"
+              placeholder="Search..."
+              value={searchValue}
+              onChange={handleInputChange}
             />
+            <button onClick={handleSearch}>Search</button>
           </div>
         </div>
       </div>
