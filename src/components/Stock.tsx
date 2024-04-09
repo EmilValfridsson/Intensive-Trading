@@ -1,68 +1,48 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import Plot from "react-plotly.js";
 
-let StockSymbol = `TSLA`;
-
-class Stock extends React.Component {
-  constructor(props: any) {
-    super(props);
-    this.state = {
-      xValues: [],
-      yValues: [],
-    };
-  }
-
-  componentDidMount(): void {
-    this.fetchStock();
-  }
-
-  fetchStock() {
-    const pointerToThis = this;
-    console.log(pointerToThis);
-    const API_KEY = `T2U4PBKMTOM4OVAV`;
-
-    let API_CALL = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${StockSymbol}&outputsize=compact&apikey=${API_KEY}`;
-    let xValuesFunction = [];
-    let yValuesFunction = [];
-    fetch(API_CALL)
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error(res.statusText);
-        }
-        return res.json();
-      })
-      .then(function (data) {
+function Stock(value: string) {
+  const [xValues, setXValues] = useState<string[]>([]);
+  const [yValues, setYValues] = useState<number[]>([]);
+  useEffect(() => {
+    setXValues([]);
+    setYValues([]);
+    fetch(`http://localhost:9111/api/stocks?data=${value}`)
+      .then((res) => res.json())
+      .then((data) => {
         console.log(data);
-
+        const newXValues: string[] = [];
+        const newYValues: number[] = [];
         for (var key in data[`Time Series (Daily)`]) {
-          xValuesFunction.push(key);
-          yValuesFunction.push(data[`Time Series (Daily)`][key][`1. open`]);
+          newXValues.push(key);
+          newYValues.push(data[`Time Series (Daily)`][key][`1. open`]);
         }
-        pointerToThis.setState({
-          xValues: xValuesFunction,
-          yValues: yValuesFunction,
-        });
+        setXValues((prevXValues) => [...prevXValues, ...newXValues]);
+        setYValues((prevYValues) => [...prevYValues, ...newYValues]);
+        console.log(xValues.length, "Length x values");
+        console.log(yValues.length, "Length y values");
+        console.log(xValues, "x values");
+        console.log(yValues, "y values");
+        console.log(newXValues, "New x values");
       });
-  }
-  render() {
-    return (
-      <div>
-        <h1>Stock</h1>
-        <Plot
-          data={[
-            {
-              x: this.state.xValues,
-              y: this.state.yValues,
-              type: "scatter",
-              mode: "lines+markers",
-              marker: { color: "red" },
-            },
-          ]}
-          layout={{ width: 640, height: 480, title: `${StockSymbol}` }}
-        />
-      </div>
-    );
-  }
+  }, [value]);
+  return (
+    <div>
+      <h1>Stock</h1>
+      <Plot
+        data={[
+          {
+            x: xValues,
+            y: yValues,
+            type: "scatter",
+            mode: "lines+markers",
+            marker: { color: "green" },
+          },
+        ]}
+        layout={{ width: 640, height: 480, title: `${value}` }}
+      />
+    </div>
+  );
 }
 
 export default Stock;
