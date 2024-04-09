@@ -10,7 +10,6 @@ function Stock(value: string) {
     fetch(`http://localhost:9111/api/stocks?data=${value}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         const newXValues: string[] = [];
         const newYValues: number[] = [];
         for (var key in data[`Time Series (Daily)`]) {
