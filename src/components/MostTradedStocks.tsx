@@ -1,3 +1,5 @@
+import { useTgl } from "../hooks/useTgl";
+
 export default function TradedStocks() {
   const stocks = [
     "Evolution",
@@ -10,6 +12,8 @@ export default function TradedStocks() {
     "Company E",
   ];
 
+  const { tgl, setTgl } = useTgl();
+
   return (
     <div className="left-menu mr-auto mt-50">
       <ul
@@ -18,12 +22,19 @@ export default function TradedStocks() {
           height: "400px",
         }}
       >
-        <li className="text-4xl menu-title">Mest omsatta aktier</li>
-        {stocks.map((stocks, index) => (
-          <li key={index} className="text-3xl">
-            <a>{stocks}</a>
-          </li>
-        ))}
+        <li className="text-xl menu-title">Mest omsatta aktier</li>
+        {tgl ? (
+          tgl.map((stock, index) => (
+            <li key={stock.ticker} className="text-xl">
+              <div>
+                <a>{stock.ticker}</a>{" "}
+                <a className=" text-green-500">{stock.change_percentage}</a>
+              </div>
+            </li>
+          ))
+        ) : (
+          <li>loading....</li>
+        )}
       </ul>
     </div>
   );
