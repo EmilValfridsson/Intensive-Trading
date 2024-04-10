@@ -7,14 +7,9 @@ export interface TGLFormData {
   change_percentage: number;
   volume: number;
 }
-export interface TGLData {
-  top_gainers: [];
-  last_updated: string;
-  top_losers: [];
-}
 
 const API_BASEURL = "http://localhost:9111/api/tgl";
 
 export default function getTgl() {
-  return axios.get<TGLFormData[]>(API_BASEURL);
+  return axios.get<TGLFormData[]>(`${API_BASEURL}/gainers`);
 }
