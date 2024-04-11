@@ -2,7 +2,10 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate } from "react-router";
-//import { user } from "@services";
+import userService from "../services/userService";
+import { isAxiosError } from "axios";
+import { useUserContext } from "../UserContext";
+import authService from "../services/authService";
 
 const schema = z.object({
   name: z.string(),
@@ -26,16 +29,19 @@ function RegisterPage() {
     handleSubmit,
     formState: { errors, isValid },
   } = useForm<FormData>({ resolver: zodResolver(schema), mode: "onChange" });
+  const { setUser } = useUserContext();
 
   async function onSubmit(data: FormData) {
-    console.log("Submitted", data);
     try {
-      // await user.register(data);
+      await userService.register(data);
+      const loggedIn = await authService.getCurrentUser();
 
+      setUser(loggedIn);
       navigate("/");
-    } catch (error: any) {
-      if (error.response.status === 400)
-        setError("username", { message: error.response.data });
+    } catch (error) {
+      if (isAxiosError(error))
+        if (error.response?.status === 400)
+          setError("username", { message: error.response.data });
     }
   }
 
