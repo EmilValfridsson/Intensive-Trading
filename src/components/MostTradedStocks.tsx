@@ -15,8 +15,10 @@ export default function TradedStocks() {
         {topGainers.map((stock, index) => (
           <li key={index} className="text-xl">
             <div>
-              <a>{stock.ticker}</a>{" "}
-              <a className=" text-green-500">{stock.change_percentage}</a>
+              <a>{stock.ticker}</a>
+              <a className=" text-green-500 text-right">
+                {stock.change_percentage}
+              </a>
             </div>
           </li>
         ))}
