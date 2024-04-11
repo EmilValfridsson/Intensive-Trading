@@ -10,6 +10,6 @@ export interface TGLFormData {
 
 const API_BASEURL = "http://localhost:9111/api/stocks";
 
-export default function getTgl() {
+export default function getGainers() {
   return axios.get<TGLFormData[]>(`${API_BASEURL}/gainers`);
 }
