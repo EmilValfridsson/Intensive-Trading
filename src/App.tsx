@@ -1,12 +1,19 @@
 import { Outlet } from "react-router-dom";
 import UserProvider from "./UserContext";
+import NavBar from "./components/NavBar";
+import SearchProvider from "./SearchConxtext";
 
 function App() {
   return (
-    <UserProvider>
-      <Outlet />
-    </UserProvider>
+    <SearchProvider>
+      <UserProvider>
+        <NavBar />
+        <Outlet />
+      </UserProvider>
+    </SearchProvider>
   );
 }
 
 export default App;
+
+// onSearch={handleSearch}

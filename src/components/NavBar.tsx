@@ -1,19 +1,15 @@
 import { Link } from "react-router-dom";
 import { useUserContext } from "../UserContext";
-import { useState, ChangeEvent } from "react";
+import { useSearchContext } from "../SearchConxtext";
 
-interface SearchProps {
-  onSearch: (value: string) => void;
-}
-
-function NavBar({ onSearch }: SearchProps) {
+function NavBar() {
   const { user } = useUserContext();
-  const [searchValue, setSearchValue] = useState("");
-  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setSearchValue(event.target.value);
-  };
+  const { searchValue, handleInputChange } = useSearchContext();
+
   const handleSearch = () => {
-    onSearch(searchValue);
+    // Perform search action here using searchValue
+    console.log("Searching for:", searchValue);
+    // You can add your search functionality here
   };
 
   return (
@@ -58,7 +54,9 @@ function NavBar({ onSearch }: SearchProps) {
               value={searchValue}
               onChange={handleInputChange}
             />
-            <button onClick={handleSearch}>Search</button>
+            <button className="btn" onClick={handleSearch}>
+              Search
+            </button>
           </div>
         </div>
       </div>

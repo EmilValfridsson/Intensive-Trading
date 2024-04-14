@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import Plot from "react-plotly.js";
+import { useSearchContext } from "../SearchConxtext";
 
-interface StockProps {
-  searchValue: string;
-}
-function Stock({ searchValue }: StockProps) {
+function Stock() {
+  const { searchValue } = useSearchContext();
   const [xValues, setXValues] = useState<string[]>([]);
   const [yValues, setYValues] = useState<number[]>([]);
   useEffect(() => {
