@@ -7,9 +7,7 @@ function NavBar() {
   const { searchValue, handleInputChange } = useSearchContext();
 
   const handleSearch = () => {
-    // Perform search action here using searchValue
     console.log("Searching for:", searchValue);
-    // You can add your search functionality here
   };
 
   return (
