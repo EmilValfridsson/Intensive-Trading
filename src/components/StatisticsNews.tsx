@@ -1,6 +1,6 @@
 export default function StatisticsNews() {
   return (
-    <div className="flex justify-center items-end min-h-screen">
+    <div className="flex justify-center">
       <ul className="menu bg-base-200 rounded-box w-full max-w-800 ">
         <li className="menu-title text-2xl">Statistik & Nyheter</li>
         <li>
