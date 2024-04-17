@@ -4,11 +4,7 @@ import { useSearchContext } from "../SearchConxtext";
 
 function NavBar() {
   const { user } = useUserContext();
-  const { searchValue, handleInputChange } = useSearchContext();
-
-  const handleSearch = () => {
-    console.log("Searching for:", searchValue);
-  };
+  const { handleEnterPress } = useSearchContext();
 
   return (
     <div className="p-4">
@@ -49,12 +45,9 @@ function NavBar() {
               type="text"
               className="input input-bordered w-24 md:w-auto"
               placeholder="Search..."
-              value={searchValue}
-              onChange={handleInputChange}
+              // onChange={handleInputChange}
+              onKeyDown={handleEnterPress}
             />
-            <button className="btn" onClick={handleSearch}>
-              Search
-            </button>
           </div>
         </div>
       </div>
