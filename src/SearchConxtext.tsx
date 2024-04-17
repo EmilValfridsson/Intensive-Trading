@@ -8,6 +8,7 @@ import {
 
 interface ISearchContext {
   searchValue: string;
+  setSearchValue: React.Dispatch<React.SetStateAction<string>>;
   handleInputChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -20,6 +21,7 @@ export default function SearchProvider({ children }: PropsWithChildren) {
   };
   const value: ISearchContext = {
     searchValue,
+    setSearchValue,
     handleInputChange,
   };
   return (
