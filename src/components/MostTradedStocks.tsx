@@ -1,7 +1,9 @@
+import { useSearchContext } from "../SearchContext";
 import { useTopgainers } from "../hooks/useTopGainers";
 
 export default function TradedStocks() {
   const { topGainers } = useTopgainers();
+  const { setSearchValue } = useSearchContext();
 
   return (
     <div className="left-menu mr-auto mt-50">
@@ -14,7 +16,7 @@ export default function TradedStocks() {
         <li className="text-xl menu-title">Top Gainers</li>
         {topGainers.map((stock, index) => (
           <li key={index} className="text-xl">
-            <div>
+            <div onClick={() => setSearchValue(stock.ticker)}>
               <a>{stock.ticker}</a>
               <a className=" text-green-500 text-right">
                 {stock.change_percentage}

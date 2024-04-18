@@ -1,26 +1,26 @@
-import {
-  ChangeEvent,
-  PropsWithChildren,
-  createContext,
-  useContext,
-  useState,
-} from "react";
+import { PropsWithChildren, createContext, useContext, useState } from "react";
 
 interface ISearchContext {
   searchValue: string;
-  handleInputChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  setSearchValue: React.Dispatch<React.SetStateAction<string>>;
+  handleEnterPress: (event: React.KeyboardEvent<HTMLInputElement>) => void;
 }
 
 const SearchContext = createContext({} as ISearchContext);
 
 export default function SearchProvider({ children }: PropsWithChildren) {
   const [searchValue, setSearchValue] = useState<string>("");
-  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setSearchValue(event.target.value);
+
+  const handleEnterPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Enter") {
+      const value = event.currentTarget.value;
+      setSearchValue(value);
+    }
   };
   const value: ISearchContext = {
     searchValue,
-    handleInputChange,
+    handleEnterPress,
+    setSearchValue,
   };
   return (
     <SearchContext.Provider value={value}>{children}</SearchContext.Provider>
