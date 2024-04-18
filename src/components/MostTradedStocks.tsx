@@ -1,4 +1,4 @@
-import { useSearchContext } from "../SearchConxtext";
+import { useSearchContext } from "../SearchContext";
 import { useTopgainers } from "../hooks/useTopGainers";
 
 export default function TradedStocks() {
