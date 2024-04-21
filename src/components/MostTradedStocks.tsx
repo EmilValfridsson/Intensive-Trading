@@ -17,7 +17,10 @@ export default function TradedStocks() {
         <li className="text-xl menu-title">Top Gainers</li>
         {topGainers.map((stock, index) => (
           <li key={index} style={{ fontSize: "15px", position: "relative" }}>
-            <FavoriteButton />
+            <FavoriteButton
+              isFavored={Boolean(stock.isFavored)}
+              onFavor={() => console.log(stock.ticker)}
+            />
             <div
               onClick={() => setSearchValue(stock.ticker)}
               style={{ paddingLeft: "25px" }}
