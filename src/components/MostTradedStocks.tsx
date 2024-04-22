@@ -1,5 +1,6 @@
 import { useSearchContext } from "../SearchContext";
 import { useTopgainers } from "../hooks/useTopGainers";
+import FavoriteButton from "./FavoriteButton";
 
 export default function TradedStocks() {
   const { topGainers } = useTopgainers();
@@ -15,8 +16,15 @@ export default function TradedStocks() {
       >
         <li className="text-xl menu-title">Top Gainers</li>
         {topGainers.map((stock, index) => (
-          <li key={index} className="text-xl">
-            <div onClick={() => setSearchValue(stock.ticker)}>
+          <li key={index} style={{ fontSize: "15px", position: "relative" }}>
+            <FavoriteButton
+              isFavored={Boolean(stock.isFavored)}
+              onFavor={() => stock.ticker}
+            />
+            <div
+              onClick={() => setSearchValue(stock.ticker)}
+              style={{ paddingLeft: "25px" }}
+            >
               <a>{stock.ticker}</a>
               <a className=" text-green-500 text-right">
                 {stock.change_percentage}

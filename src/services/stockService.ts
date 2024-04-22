@@ -6,6 +6,7 @@ export interface TGLFormData {
   change_amount: number;
   change_percentage: number;
   volume: number;
+  isFavored?: boolean;
 }
 
 const API_BASEURL = "http://localhost:9111/api/stocks";
