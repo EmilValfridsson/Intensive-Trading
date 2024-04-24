@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
-import UserProvider from "./UserContext";
+import UserProvider from "./context/UserContext";
 import NavBar from "./components/NavBar";
-import SearchProvider from "./SearchContext";
+import SearchProvider from "./context/SearchContext";
 
 function App() {
   return (
