@@ -27,7 +27,7 @@ function Stock() {
     }
   }, [searchValue]);
   return (
-    <div>
+    <div className=" rounded-xl overflow-hidden">
       <Plot
         data={[
           {
@@ -38,7 +38,13 @@ function Stock() {
             marker: { color: "green" },
           },
         ]}
-        layout={{ width: 640, height: 480, title: `${searchValue}` }}
+        layout={{
+          paper_bgcolor: "#e4d8b4",
+          plot_bgcolor: "#e4d8b4",
+          width: 640,
+          height: 480,
+          title: `${searchValue}`,
+        }}
       />
     </div>
   );

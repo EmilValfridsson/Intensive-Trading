@@ -12,9 +12,11 @@ export default function MainPage() {
           <TradedStocks />
         </div>
         <div className="flex-grow">
-          <Stock />
+          <div className="flex justify-center">
+            <Stock />
+          </div>
           <StockStats />
-          {/* <StatisticsNews /> */}
+          <StatisticsNews />
         </div>
         <div className="flex-shrink">
           <FavoriteStocks />
