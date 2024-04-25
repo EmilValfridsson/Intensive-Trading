@@ -16,6 +16,6 @@ export function getGainers() {
   return axios.get<TGLFormData[]>(`${API_BASEURL}/gainers`);
 }
 
-export function getStats() {
-  return axios.get<StockInfo>(`${API_BASEURL}/stats`);
+export function getStats(ticker: string) {
+  return axios.get<StockInfo>(`${API_BASEURL}/stats/${ticker}`);
 }
