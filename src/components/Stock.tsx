@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import Plot from "react-plotly.js";
 import { useSearchContext } from "../context/SearchContext";
-import { getStats } from "../services/stockService";
-import { useStatsContext } from "../context/StatsContext";
 
 function Stock() {
   const { searchValue } = useSearchContext();
