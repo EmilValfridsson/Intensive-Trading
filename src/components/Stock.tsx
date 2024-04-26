@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import Plot from "react-plotly.js";
-import { useSearchContext } from "../SearchContext";
+import { useSearchContext } from "../context/SearchContext";
 
 function Stock() {
   const { searchValue } = useSearchContext();
+
   const [xValues, setXValues] = useState<string[]>([]);
   const [yValues, setYValues] = useState<number[]>([]);
   useEffect(() => {
@@ -26,7 +27,7 @@ function Stock() {
     }
   }, [searchValue]);
   return (
-    <div>
+    <div className=" rounded-xl overflow-hidden">
       <Plot
         data={[
           {
@@ -37,7 +38,13 @@ function Stock() {
             marker: { color: "green" },
           },
         ]}
-        layout={{ width: 640, height: 480, title: `${searchValue}` }}
+        layout={{
+          paper_bgcolor: "#e4d8b4",
+          plot_bgcolor: "#e4d8b4",
+          width: 640,
+          height: 480,
+          title: `${searchValue}`,
+        }}
       />
     </div>
   );

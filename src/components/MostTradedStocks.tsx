@@ -1,4 +1,4 @@
-import { useSearchContext } from "../SearchContext";
+import { useSearchContext } from "../context/SearchContext";
 import { useTopgainers } from "../hooks/useTopGainers";
 import FavoriteButton from "./FavoriteButton";
 

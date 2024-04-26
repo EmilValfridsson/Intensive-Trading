@@ -4,7 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate } from "react-router";
 import userService from "../services/userService";
 import { isAxiosError } from "axios";
-import { useUserContext } from "../UserContext";
+import { useUserContext } from "../context/UserContext";
 import authService from "../services/authService";
 
 const schema = z.object({

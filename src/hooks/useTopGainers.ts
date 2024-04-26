@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import getGainers, { TGLFormData } from "../services/stockService";
+import { getGainers } from "../services/stockService";
+import { TGLFormData } from "../services/stockService";
 
 export function useTopgainers() {
   const [topGainers, setTopGainers] = useState<TGLFormData[]>([]);

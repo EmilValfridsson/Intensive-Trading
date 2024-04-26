@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { useUserContext } from "../UserContext";
-import { useSearchContext } from "../SearchContext";
+import { useUserContext } from "../context/UserContext";
+import { useSearchContext } from "../context/SearchContext";
 
 function NavBar() {
   const { user } = useUserContext();

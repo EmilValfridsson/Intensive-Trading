@@ -3,7 +3,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import auth from "../services/authService";
-import { useUserContext } from "../UserContext";
+import { useUserContext } from "../context/UserContext";
 
 const schema = z.object({
   username: z.string().min(1, { message: "Username is required." }),

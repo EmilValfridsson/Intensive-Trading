@@ -1,4 +1,5 @@
 import axios from "axios";
+import { StockInfo } from "../types";
 
 export interface TGLFormData {
   ticker: string;
@@ -11,6 +12,10 @@ export interface TGLFormData {
 
 const API_BASEURL = "http://localhost:9111/api/stocks";
 
-export default function getGainers() {
+export function getGainers() {
   return axios.get<TGLFormData[]>(`${API_BASEURL}/gainers`);
+}
+
+export function getStats(ticker: string) {
+  return axios.get<StockInfo>(`${API_BASEURL}/stats/${ticker}`);
 }
