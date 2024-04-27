@@ -1,5 +1,5 @@
-import axios from "axios";
-import { StockInfo } from "../types";
+import axios, { AxiosResponse } from "axios";
+import { StockInfo, IStockNews } from "../types";
 
 export interface TGLFormData {
   ticker: string;
@@ -18,4 +18,11 @@ export function getGainers() {
 
 export function getStats(ticker: string) {
   return axios.get<StockInfo>(`${API_BASEURL}/stats/${ticker}`);
+}
+
+export async function getNews(
+  ticker: string
+): Promise<AxiosResponse<IStockNews>> {
+  const response = await axios.get<IStockNews>(`${API_BASEURL}/news/${ticker}`);
+  return response;
 }

@@ -39,3 +39,12 @@ export interface StockInfo {
   "50DayMovingAverage": string;
   "200DayMovingAverage": string;
 }
+
+export interface IStockNews {
+  feed: StockNewsItem[];
+}
+
+export interface StockNewsItem {
+  title: string;
+  url: string;
+}
