@@ -1,8 +1,8 @@
 import FavoriteStocks from "../components/FavoriteStocks";
 import TradedStocks from "../components/MostTradedStocks";
-import StatisticsNews from "../components/StatisticsNews";
 import Stock from "../components/Stock";
 import StockStats from "../components/StockStats";
+import StockNews from "../components/StockNews";
 
 export default function MainPage() {
   return (
@@ -16,7 +16,7 @@ export default function MainPage() {
             <Stock />
           </div>
           <StockStats />
-          <StatisticsNews />
+          <StockNews />
         </div>
         <div className="flex-shrink">
           <FavoriteStocks />
