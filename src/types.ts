@@ -51,6 +51,6 @@ export interface StockNewsItem {
 
 export interface favoriteTickers {
   favoriteTicker: string;
-  id: string;
-  userId: string;
+  id?: string;
+  userId?: string;
 }
