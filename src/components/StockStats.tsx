@@ -8,6 +8,7 @@ export default function StockStats() {
   const { searchValue } = useSearchContext();
   useEffect(() => {
     async function fetch() {
+      if (!searchValue) return null;
       const { data: stats } = await getStats(searchValue);
       setStockStats(stats);
     }

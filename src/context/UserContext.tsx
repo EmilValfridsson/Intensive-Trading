@@ -1,20 +1,18 @@
 import { PropsWithChildren, createContext, useContext, useState } from "react";
 import { User } from "../types";
+import authService from "../services/authService";
 
 interface UserContextType {
   user: User | null;
   setUser: React.Dispatch<React.SetStateAction<User | null>>;
 }
 
-const defaultUserContext: UserContextType = {
-  user: null,
-  setUser: () => null,
-};
-
-const UserContext = createContext(defaultUserContext);
+const UserContext = createContext({} as UserContextType);
 
 export default function UserProvider({ children }: PropsWithChildren) {
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<User | null>(() => {
+    return authService.getCurrentUser();
+  });
 
   const value: UserContextType = {
     user,

@@ -9,8 +9,9 @@ export default function StockNews(): JSX.Element {
 
   useEffect(() => {
     async function fetch() {
+      if (!searchValue) return null;
       const { data: news } = await getNews(searchValue);
-      console.log(news);
+
       setStockNews(news);
     }
     fetch();

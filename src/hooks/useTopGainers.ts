@@ -4,6 +4,7 @@ import { TGLFormData } from "../services/stockService";
 
 export function useTopgainers() {
   const [topGainers, setTopGainers] = useState<TGLFormData[]>([]);
+
   useEffect(() => {
     async function fetch() {
       const { data: gainers } = await getGainers();
