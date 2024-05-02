@@ -48,3 +48,9 @@ export interface StockNewsItem {
   title: string;
   url: string;
 }
+
+export interface favoriteTickers {
+  favoriteTicker: string;
+  id?: string;
+  userId?: string;
+}

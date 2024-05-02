@@ -1,12 +1,17 @@
 import { useSearchContext } from "../context/SearchContext";
+import { useUserStocksContext } from "../context/UserStocksContext";
 import { useTopgainers } from "../hooks/useTopGainers";
+
 import auth from "../services/authService";
 import { addFavorite } from "../services/favoriteService";
+import { favoriteTickers } from "../types";
+
 import FavoriteButton from "./FavoriteButton";
 
 export default function TradedStocks() {
   const { topGainers, setTopGainers } = useTopgainers();
   const { setSearchValue } = useSearchContext();
+  const { userStocks, setUserStocks } = useUserStocksContext();
   const user = auth.getCurrentUser();
 
   async function handleFavor(ticker: string) {
@@ -14,6 +19,16 @@ export default function TradedStocks() {
       const token = await auth.getJwt();
       if (token) {
         await addFavorite(ticker, token);
+
+        const alreadyAdded = userStocks.some(
+          (stock) => stock.favoriteTicker === ticker
+        );
+
+        if (alreadyAdded) return;
+
+        const newFavorite: favoriteTickers = { favoriteTicker: ticker };
+
+        setUserStocks((prev) => [...prev, newFavorite]);
       }
       const newFavorite = topGainers.map((stock) => {
         if (stock.ticker === ticker) {
@@ -21,6 +36,7 @@ export default function TradedStocks() {
         }
         return stock;
       });
+
       setTopGainers(newFavorite);
     } catch (error) {
       console.error("failed to add stock as favorite");

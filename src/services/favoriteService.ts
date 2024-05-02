@@ -11,3 +11,13 @@ export function addFavorite(ticker: string, token: string) {
     }
   );
 }
+
+export function getFavorites(token: string) {
+  return axios.get(API_BASEURL, { headers: { "x-auth-token": token } });
+}
+
+export function deleteFavorite(token: string, ticker: string) {
+  return axios.delete(`${API_BASEURL}/${ticker}`, {
+    headers: { "x-auth-token": token },
+  });
+}
