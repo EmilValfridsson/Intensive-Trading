@@ -56,13 +56,18 @@ function Stock() {
   }, [searchValue]);
   return (
     <div className="relative rounded-xl overflow-hidden">
-      <div>Add to your favorite</div>
-      {user && (
-        <AbsoluteFavoriteButton
-          isFavored={Boolean(searchValue)}
-          onFavor={() => handleFavor(searchValue)}
-        />
+      {searchValue && (
+        <div>
+          Add to your favorite{" "}
+          {user && (
+            <AbsoluteFavoriteButton
+              isFavored={Boolean(searchValue)}
+              onFavor={() => handleFavor(searchValue)}
+            />
+          )}
+        </div>
       )}
+
       <Plot
         data={[
           {
